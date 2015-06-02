@@ -1,45 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d4303167-7fd4-48d0-87b0-6eb4391a26ad" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/humans.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/portfolio_earth.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/portfolio_story.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.abide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.accordion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.alert.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.clearing.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.equalizer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.interchange.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.joyride.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.magellan.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.offcanvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.orbit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.reveal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.slider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.tab.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.tooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/foundation/foundation.topbar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/vendor/fastclick.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/vendor/jquery.cookie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/vendor/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/vendor/modernizr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/vendor/placeholder.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/robots.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/css/foundation.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/css/foundation.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/css/normalize.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/sass/main.scss" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="d4303167-7fd4-48d0-87b0-6eb4391a26ad" name="Default" comment="" />
     <ignored path="portfolio.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +24,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.07194245">
-              <caret line="86" column="26" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.26978418">
+              <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -316,14 +278,22 @@
       <option name="number" value="Default" />
       <updated>1432724599823</updated>
     </task>
+    <task id="LOCAL-00001" summary="Progress and window animation improvements.">
+      <created>1433268422568</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1433268422568</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1280" y="23" width="1280" height="1413" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -351,6 +321,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Progress and window animation improvements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Progress and window animation improvements." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -455,8 +429,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07194245">
-          <caret line="86" column="26" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.26978418">
+          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
           <folding />
         </state>
       </provider>
