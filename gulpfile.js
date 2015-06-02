@@ -7,18 +7,19 @@ var sass = require('gulp-sass');
 // Static server + watching scss/html
 gulp.task('serve', ['sass'], function() {
     browserSync.init({
-        server: './'
+        server: './public'
     }) ;
 
-    gulp.watch('./styles/sass/*.scss', ['sass']);
-    gulp.watch('./*.html').on('change', browserSync.reload);
+    gulp.watch('./public/js/*.js').on('change', browserSync.reload);
+    gulp.watch('./public/styles/sass/*.scss', ['sass']);
+    gulp.watch('./public/*.html').on('change', browserSync.reload);
 });
 
 // compile sass into css & auto-inject into browsers
 gulp.task('sass', function() {
-    gulp.src('./styles/sass/*.scss')
+    gulp.src('./public/styles/sass/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./styles/css'))
+        .pipe(gulp.dest('./public/styles/css'))
         .pipe(browserSync.stream());
 });
 
