@@ -7,7 +7,7 @@ var page = require('./page');
 
 (function () {
 
-// Click event for opening sample from thumbnail
+    // Click event for opening sample from thumbnail
     $('[data-hook=thumbnail]').on('click', function (e) {
         e.preventDefault();
 
@@ -22,14 +22,14 @@ var page = require('./page');
         sample.open($link);
     });
 
-// Click event for closing sample container
+    // Click event for closing sample container
     $('[data-hook=close]').on('click', function (e) {
         e.preventDefault();
 
         sample.close();
     });
 
-// Click event for opening page container
+    // Click event for opening page container
     $('[data-hook=page-link]').on('click', function (e) {
         e.preventDefault();
 
@@ -45,14 +45,14 @@ var page = require('./page');
         page.open($link);
     });
 
-// Click event for closing page container
+    // Click event for closing page container
     $('[data-hook=page-close]').on('click', function (e) {
         e.preventDefault();
 
         page.close();
     });
 
-// Close any open samples/pages
+    // Close any open samples/pages
     function closeWindows() {
         if (sample.isOpen()) {
             sample.close();

@@ -26,4 +26,4 @@ var Handlebars = require('handlebars');
     var sampleScript = $('[data-hook=sample-template]').html();
     var sampleTemplate = Handlebars.compile(sampleScript);
     $('[data-hook=samples]').append(sampleTemplate(Samples));
-}) ();
+}());

@@ -5,6 +5,7 @@ var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
 var browserify = require('gulp-browserify');
 var rename = require('gulp-rename');
+var qunit = require('gulp-qunit');
 
 var debug = true;
 
@@ -28,15 +29,26 @@ gulp.task('sass', function() {
 });
 
 gulp.task('browserify', function() {
-    gulp.src('./public/js/main.js')
+    return gulp.src(['./public/js/main.js'])
         .pipe(browserify({
             insertGlobals: true,
             debug: debug
         }))
         .pipe(rename('app.js'))
-        .pipe(gulp.dest('./public/js'))
+        .pipe(gulp.dest('./public/js'));
+
 });
 
-gulp.task('default', ['browserify', 'serve']);
+gulp.task('test', function() {
+    return gulp.src('./public/js/test.js')
+        .pipe(browserify({
+            insertGlobals: true,
+            debug: debug
+        }))
+        .pipe(rename('testSuite.js'))
+        .pipe(gulp.dest('./public/js'));
+});
 
-gulp.task('build', ['sass', 'browserify']);
+gulp.task('default', ['test', 'browserify', 'serve']);
+
+gulp.task('build', ['sass', 'test', 'browserify']);
