@@ -1,3 +1,31 @@
+// FUNCTIONS
+$em-base: 18px;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-em($value, $base-value: $em-base)  {
+  $value: strip-unit($value) / strip-unit($base-value) * 1em;
+  @if ($value == 0em) { $value: 0; } /* Turn 0em into 0 */
+  @return $value;
+}
+
+@function em-calc($values, $base-value: $em-base) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-to-em(nth($values, 1), $base-value); }
+
+  $emValues: ();
+  @for $i from 1 through $max {
+    $emValues: append($emValues, convert-to-em(nth($values, $i), $base-value));
+  }
+  @return $emValues;
+}
+
+
+// VARIABLES
+// Colors
 $primary-color: hsl(200,18,46);
 $secondary-color: hsl(200,18,26);
 $tertiary-color: hsl(200,18,66);
@@ -6,53 +34,79 @@ $white-color: hsl(0,0,98);
 $highlight-color: hsl(4,90,58);
 $highlight-secondary-color: hsl(4,90,38);
 
-
+// Weights
 $thin-weight: 100;
 $normal-weight: 400;
 $bold-weight: 700;
 $ultra-weight: 900;
 
+// Media Queries
+$small-breakpoint:  em-calc(640) ;
+$medium-breakpoint: em-calc(1024);
+$large-breakpoint:  em-calc(1440);
+$xlarge-breakpoint: em-calc(1920);
+
+$small-range:   (0, $small-breakpoint);
+$medium-range:  ($small-breakpoint  + em-calc(1));
+$large-range:   ($medium-breakpoint + em-calc(1));
+$xlarge-range:  ($large-breakpoint  + em-calc(1));
+
+// Media Queries
+$screen: "only screen";
+
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+
+$small-up: $screen;
+
+$medium-up: "#{$screen} and (min-width: #{$medium-range})";
+
+$large-up: "#{$screen} and (min-width: #{$large-range})";
+
+$xlarge-up: "#{$screen} and (min-width: #{$xlarge-range})";
+
+
 @mixin animation($str) {
   -webkit-animation: #{$str};
-     -moz-animation: #{$str};
-      -ms-animation: #{$str};
-       -o-animation: #{$str};
-          animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
 }
 @mixin animation-delay($str) {
   -webkit-animation-delay: #{$str};
-     -moz-animation-delay: #{$str};
-      -ms-animation-delay: #{$str};
-       -o-animation-delay: #{$str};
-          animation-delay: #{$str};
+  -moz-animation-delay: #{$str};
+  -ms-animation-delay: #{$str};
+  -o-animation-delay: #{$str};
+  animation-delay: #{$str};
 }
 @mixin animation-fill-mode($str) {
   -webkit-animation-fill-mode: #{$str};
-     -moz-animation-fill-mode: #{$str};
-      -ms-animation-fill-mode: #{$str};
-       -o-animation-fill-mode: #{$str};
-          animation-fill-mode: #{$str};
+  -moz-animation-fill-mode: #{$str};
+  -ms-animation-fill-mode: #{$str};
+  -o-animation-fill-mode: #{$str};
+  animation-fill-mode: #{$str};
 }
 @mixin filter($str) {
   -webkit-filter: #{$str};
-     -moz-filter: #{$str};
-      -ms-filter: #{$str};
-       -o-filter: #{$str};
-          filter: #{$str};
+  -moz-filter: #{$str};
+  -ms-filter: #{$str};
+  -o-filter: #{$str};
+  filter: #{$str};
 }
 @mixin transform-origin($str) {
   -webkit-transform-origin: #{$str};
-     -moz-transform-origin: #{$str};
-      -ms-transform-origin: #{$str};
-       -o-transform-origin: #{$str};
-          transform-origin: #{$str};
+  -moz-transform-origin: #{$str};
+  -ms-transform-origin: #{$str};
+  -o-transform-origin: #{$str};
+  transform-origin: #{$str};
 }
 @mixin transform($transforms) {
   -webkit-transform: $transforms;
-     -moz-transform: $transforms;
-      -ms-transform: $transforms;
-       -o-transform: $transforms;
-          transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  -o-transform: $transforms;
+  transform: $transforms;
 }
 @mixin rotate ($deg) {
   @include transform(rotate(#{$deg}deg));
@@ -82,17 +136,17 @@ $ultra-weight: 900;
 
 @media only screen {
   html{
-    font-size: 16px;
+    font-size: $em-base - 2px;
   }
 }
 @media only screen and (min-width: 40.0625em) {
   html{
-    font-size: 18px;
+    font-size: $em-base;
   }
 }
 @media only screen and (min-width: 64.0625em) {
   html {
-    font-size: 18px;
+    font-size: $em-base;
   }
 }
 
@@ -110,13 +164,13 @@ h1, h2, h3, p, a {
   color: $black-color;
 }
 
-@media only screen {
+@media #{$small-up} {
   .content-container {
     height: 80vh;
     padding-top: 2em;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media #{$medium-up} {
   .content-container {
     height: 90vh;
     padding-top: 3em;
@@ -290,13 +344,13 @@ h1, h2, h3, p, a {
   opacity: 0;
   z-index: 1;
 }
-@media only screen {
+@media #{$small-up} {
   .sample__image,
   .sample__content {
     height: 45vh;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media #{$medium-up} {
   .sample__image,
   .sample__content {
     height: 90vh;
@@ -425,12 +479,12 @@ h1, h2, h3, p, a {
   z-index: 4;
   background-color: $primary-color;
 }
-@media only screen {
+@media #{$small-up} {
   .menu {
     height: 20vh;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media #{$medium-up} {
   .menu {
     height: 10vh;
   }

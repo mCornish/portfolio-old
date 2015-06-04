@@ -96,7 +96,7 @@
     <div class="row small-collapse" data-hook="menu-list">
         <script type="text/x-handlebars-template" data-hook="menu-template">
             {{#each this}}
-                <div class="menu__item small-6 medium-4 columns" data-hook="menu-item">
+                <div class="menu__item {{menuClass}} columns" data-hook="menu-item">
                     <a data-hook="page-link" data-page="{{id}}">{{text}}</a>
 
                     <div class="menu__transition" data-hook="page-transition"></div>

@@ -6,15 +6,18 @@ var Handlebars = require('handlebars');
     var Pages = [
         {
             id: 1,
-            text: 'I\'m a storyteller'
+            text: 'I\'m a storyteller',
+            menuClass: 'small-6 medium-4'
         },
         {
             id: 2,
-            text: 'I tell stories'
+            text: 'I tell stories',
+            menuClass: 'small-6 medium-4'
         },
         {
             id: 3,
-            text: 'Let\'s tell your story'
+            text: 'Let\'s tell your story',
+            menuClass: 'small-12 medium-4'
         }
     ];
 

@@ -27,7 +27,7 @@ h1, h2, h3, p, a {
     height: 80vh;
     padding-top: 2em; } }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 35.61111em) {
   .content-container {
     height: 90vh;
     padding-top: 3em; } }
@@ -271,7 +271,7 @@ h1, h2, h3, p, a {
   .sample__content {
     height: 45vh; } }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 35.61111em) {
   .sample__image,
   .sample__content {
     height: 90vh; } }
@@ -451,7 +451,7 @@ h1, h2, h3, p, a {
   .menu {
     height: 20vh; } }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 35.61111em) {
   .menu {
     height: 10vh; } }
 
