@@ -3,12 +3,10 @@ var Handlebars = require('handlebars');
 
 (function() {
 
-    var Samples = [
+    var Pages = [
         {
             id: 1,
-            header: 'Story Blog',
-            subheader: 'The story of a storyteller',
-            link: 'http://www.story.mikecornish.net',
+            header: 'About Me',
             content: 'Back in late 2014, I started studying storytelling, both as a writing tool, and as a business tool. Books like <em>The Storytelling Animal</em> and <em>Wired for Story</em> explain that people respond to stories, no matter the context. I wanted to understand why, and how I could use it in my creative work.' +
             '<br><br>' +
             'I originally created MikeCornish.net to be a resource that creative minds could use to apply storytelling in new ways. Time constraints kept me from following through on the end goal, but the website remains as my first attempt building a single-page app from scratch.' +
@@ -16,7 +14,7 @@ var Handlebars = require('handlebars');
             'The website is built on AngularJS and uses Gulp for optimization and deployment bundling.'
         },
         {
-            id: 1,
+            id: 2,
             header: 'Neeks & Gerds',
             subheader: 'The story of an inspired geek',
             link: 'http://www.neeksandgerds.com',
@@ -27,7 +25,7 @@ var Handlebars = require('handlebars');
             'Neeks & Gerds was built on Wordpress with custom CSS and a few plugins.'
         },
         {
-            id: 1,
+            id: 3,
             header: 'My Designs',
             subheader: 'A story of simplicity and function',
             link: '',
@@ -39,7 +37,7 @@ var Handlebars = require('handlebars');
         }
     ];
 
-    var sampleScript = $('[data-hook=sample-template]').html();
-    var sampleTemplate = Handlebars.compile(sampleScript);
-    $('[data-hook=samples]').append(sampleTemplate(Samples));
+    var pageScript = $('[data-hook=page-template]').html();
+    var pageTemplate = Handlebars.compile(pageScript);
+    $('[data-hook=pages]').append(pageTemplate(Pages));
 }());

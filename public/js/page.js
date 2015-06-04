@@ -6,8 +6,8 @@ var page = {
     open: function($link) {
         var $menuItem = $link.parent('[data-hook=menu-item]');
         var $transition = $link.siblings('[data-hook=page-transition]');
-        var pageName = $link.attr('data-page');
-        var $page = $('[data-hook=page][data-page=' + pageName + ']');
+        var pageId = $link.attr('data-page');
+        var $page = $('[data-hook=page][data-page=' + pageId + ']');
 
         $transition.addClass('is-active');
         $menuItem.addClass('is-active').removeClass('snap');
@@ -22,8 +22,9 @@ var page = {
 
     // close active page
     close: function() {
-        $('[data-hook=page-transition].is-active').show(0);
-        $('[data-hook=page-transition].is-active').removeClass('is-active');
+        var $transition = $('[data-hook=page-transition].is-active');
+        $transition.show(0);
+        $transition.removeClass('is-active');
         $('[data-hook=page].is-active').removeClass('is-active');
         $('[data-hook=menu-item].is-active').addClass('snap').removeClass('is-active');
 
@@ -48,8 +49,9 @@ var page = {
         });
 
         $('[data-hook=page-close]').hide(0, function() {
-            $('[data-hook=page-close]').removeClass('is-active');
-            $('[data-hook=page-close]').attr('style', '');
+            var $close = $('[data-hook=page-close]');
+            $close.removeClass('is-active');
+            $close.attr('style', '');
         });
     },
     

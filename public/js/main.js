@@ -1,9 +1,11 @@
 'use strict';
 
-var $ = require('jquery');
-var sample = require('./sample');
-var sampleTemplate = require('./sampleTemplate');
-var page = require('./page');
+var $ = require('jquery'),
+    sample = require('./sample'),
+    sampleTemplate = require('./sampleTemplate'),
+    pageTemplate = require('./pageTemplate'),
+    menuTemplate = require('./menuTemplate'),
+    page = require('./page');
 
 (function () {
 
@@ -33,6 +35,7 @@ var page = require('./page');
     $('[data-hook=page-link]').on('click', function (e) {
         e.preventDefault();
 
+        var $link = $(e.target);
         var $menuItem = $link.parent('[data-hook=menu-item]');
         // check whether this page is already open
         if ($menuItem.hasClass('is-active')) {
@@ -41,7 +44,6 @@ var page = require('./page');
         }
         closeWindows();
 
-        var $link = $(e.target);
         page.open($link);
     });
 

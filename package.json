@@ -15,6 +15,7 @@
     "gulp-qunit": "^1.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1",
+    "gulp-watch": "^4.2.4",
     "handlebars": "^3.0.3",
     "jquery": "^2.1.4",
     "qunit": "^0.7.6",

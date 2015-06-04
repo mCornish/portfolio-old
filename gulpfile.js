@@ -1,11 +1,13 @@
 'use strict';
 
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass = require('gulp-sass');
-var browserify = require('gulp-browserify');
-var rename = require('gulp-rename');
-var qunit = require('gulp-qunit');
+var gulp = require('gulp'),
+    // TODO maybe figure out gulp-watch with browserify — whatever
+    watch = require('gulp-watch'),
+    browserSync = require('browser-sync').create(),
+    sass = require('gulp-sass'),
+    browserify = require('gulp-browserify'),
+    rename = require('gulp-rename'),
+    qunit = require('gulp-qunit');
 
 var debug = true;
 

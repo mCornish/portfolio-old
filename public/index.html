@@ -40,6 +40,7 @@
         <!-- TODO create and manage appropriate resolutions for hover and sample images -->
         <ul class="samples small-block-grid-2 medium-block-grid-3 large-block-grid-3" data-hook="samples">
             <div class="samples__close" data-hook="close">X</div>
+
             <script type="text/x-handlebars-template" data-hook="sample-template">
                 {{#each this}}
                     <li class="sample">
@@ -58,51 +59,50 @@
 
                                 <h2 class="sample__subheader text-center">{{subheader}}</h2>
 
-                                <p></p>
+                                <p class="sample__text">{{{content}}}</p>
                             </div>
                         </div>
                     </li>
                 {{/each}}
             </script>
+
         </ul>
     </div>
 
     <!-- TODO make links animate to page on desktop and scroll to page on mobile -->
-    <div class="page__close" data-hook="page-close">X</div>
+    <div class="pages" data-hook="pages">
+        <div class="page__close" data-hook="page-close">X</div>
 
-    <div class="about page" data-hook="page" data-page="about">
-        <div class="page__content" data-hook="page-content">
-            <h1 class="page__header">ABOUT ME</h1>
-        </div>
-    </div>
-
-    <div class="process page" data-hook="page" data-page="process">
-
-    </div>
-
-    <div class="contact page" data-hook="page" data-page="contact">
+        <script type="text/x-handlebars-template" data-hook="page-template">
+            {{#each this}}
+                <div class="page page-{{id}}" data-hook="page" data-page="{{id}}">
+                    <div class="page__content" data-hook="page-content">
+                        <div class="row">
+                            <h1 class="page__header small-12 small-centered columns">{{header}}</h1>
+                        </div>
+                        <div class="row">
+                            <p class="page__text small-10 medium-10 large-10 small-centered columns">{{{content}}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </script>
 
     </div>
 </div>
 
 <!-- TODO create carousel for pages -->
 <div class="menu text-center" data-hook="menu">
-    <div class="row small-collapse">
-        <div class="menu__item small-6 medium-4 columns" data-hook="menu-item">
-            <a data-hook="page-link" data-page="about">I'm a storyteller</a>
+    <div class="row small-collapse" data-hook="menu-list">
+        <script type="text/x-handlebars-template" data-hook="menu-template">
+            {{#each this}}
+                <div class="menu__item small-6 medium-4 columns" data-hook="menu-item">
+                    <a data-hook="page-link" data-page="{{id}}">{{text}}</a>
 
-            <div class="menu__transition" data-hook="page-transition"></div>
-        </div>
-        <div class="menu__item small-6 medium-4 columns" data-hook="menu-item">
-            <a data-hook="page-link" data-page="process">I tell stories</a>
-
-            <div class="menu__transition" data-hook="page-transition"></div>
-        </div>
-        <div class="menu__item small-12 medium-4 columns" data-hook="menu-item">
-            <a data-hook="page-link" data-page="contact">Let's tell your story</a>
-
-            <div class="menu__transition" data-hook="page-transition"></div>
-        </div>
+                    <div class="menu__transition" data-hook="page-transition"></div>
+                </div>
+            {{/each}}
+        </script>
     </div>
 </div>
 
