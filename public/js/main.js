@@ -19,9 +19,10 @@ var $ = require('jquery'),
             closeWindows();
             return;
         }
-        closeWindows();
+        closeWindows(function() {
+            sample.open($link);
+        });
 
-        sample.open($link);
     });
 
     // Click event for closing sample container
@@ -42,9 +43,9 @@ var $ = require('jquery'),
             closeWindows();
             return;
         }
-        closeWindows();
-
-        page.open($link);
+        closeWindows(function() {
+            page.open($link);
+        });
     });
 
     // Click event for closing page container
@@ -55,12 +56,14 @@ var $ = require('jquery'),
     });
 
     // Close any open samples/pages
-    function closeWindows() {
+    function closeWindows(callback) {
         if (sample.isOpen()) {
             sample.close();
         }
         if (page.isOpen()) {
             page.close();
         }
+
+        callback();
     }
 })();

@@ -4,10 +4,11 @@ var $ = require('jquery');
 
 var page = {
     open: function($link) {
-        var $menuItem = $link.parent('[data-hook=menu-item]');
-        var $transition = $link.siblings('[data-hook=page-transition]');
-        var pageId = $link.attr('data-page');
-        var $page = $('[data-hook=page][data-page=' + pageId + ']');
+        var $menuItem = $link.parent('[data-hook=menu-item]'),
+            $transition = $link.siblings('[data-hook=page-transition]'),
+            pageId = $link.attr('data-page'),
+            $page = $('[data-hook=page][data-page=' + pageId + ']'),
+            $content = $page.find('[data-hook=page-content]');
 
         $transition.addClass('is-active');
         $menuItem.addClass('is-active').removeClass('snap');
@@ -15,38 +16,32 @@ var page = {
         setTimeout(function() {
             $page.addClass('is-active');
             $transition.hide(0);
-            $page.find('[data-hook=page-content]').addClass('is-active');
+            $content.addClass('is-active');
             $('[data-hook=page-close]').addClass('is-active');
         }, 200);
     },
 
     // close active page
     close: function() {
-        var $transition = $('[data-hook=page-transition].is-active');
+        var $menuItem = $('[data-hook=menu-item].is-active'),
+            $link = $menuItem.find('[data-hook=page-link]'),
+            $transition = $link.siblings('[data-hook=page-transition]'),
+            pageId = $link.attr('data-page'),
+            $page = $('[data-hook=page][data-page=' + pageId + ']'),
+            $content = $page.find('[data-hook=page-content]'),
+            $image = $page.find('[data-hook=page-image]');
+
+        if (! $transition.hasClass('is-active')) {
+            throw new Error('Transition not active');
+        }
+
         $transition.show(0);
         $transition.removeClass('is-active');
-        $('[data-hook=page].is-active').removeClass('is-active');
-        $('[data-hook=menu-item].is-active').addClass('snap').removeClass('is-active');
+        $page.removeClass('is-active');
+        $menuItem.addClass('snap').removeClass('is-active');
 
-        $('[data-hook=page-image], [data-hook=page-content]').each(function() {
-            $(this).fadeOut(function() {
-                $(this).removeClass('is-active');
-                // remove style from fadeOut
-                $(this).attr('style', '');
-
-            });
-        });
-
-        // rebind click event
-        $('[data-hook=thumbnail]').each(function() {
-            $(this).on('click', function(e) {
-                e.preventDefault();
-                openSample(e.target);
-                $('[data-hook=thumbnail]').each(function() {
-                    $(this).off('click');
-                });
-            });
-        });
+        $content.removeClass('is-active');
+        $image.removeClass('is-active');
 
         $('[data-hook=page-close]').hide(0, function() {
             var $close = $('[data-hook=page-close]');

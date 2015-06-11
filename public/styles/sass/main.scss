@@ -338,6 +338,12 @@ h1, h2, h3, p, a {
 .sample__item.is-active {
   display: block;
 }
+.sample__images {
+  left: 0;
+  top: 0;
+  padding: 0;
+  overflow: scroll;
+}
 .sample__image,
 .sample__content {
   display: none;
@@ -345,22 +351,27 @@ h1, h2, h3, p, a {
   z-index: 1;
 }
 @media #{$small-up} {
-  .sample__image,
+  .sample__images,
+  .sample__image:only-child,
+  .sample__image:only-child:hover,
   .sample__content {
     height: 45vh;
   }
 }
 @media #{$medium-up} {
-  .sample__image,
+  .sample__images,
+  .sample__image:only-child,
+  .sample__image:only-child:hover,
   .sample__content {
     height: 90vh;
   }
 }
 .sample__image {
-  left: 0;
-  top: 0;
   display: none;
   opacity: 0;
+  top: 0;
+  left: 0;
+  height: 30vh;
   background-size: cover;
   background-color: $primary-color;
   background-blend-mode: luminosity;
@@ -368,6 +379,7 @@ h1, h2, h3, p, a {
 }
 .sample__image:hover {
   background-color: transparent;
+  height: 45vh;
 }
 .sample__image.is-active {
   display: block;
@@ -409,8 +421,8 @@ h1, h2, h3, p, a {
   display: none;
   opacity: 0;
   position: absolute;
-  right: .5em;
-  top: .5em;
+  right: 2em;
+  top: 1em;
   color: $highlight-color;
   z-index: 5;
   font-size: 2em;
@@ -438,6 +450,7 @@ h1, h2, h3, p, a {
   display: block;
 }
 .page__content {
+  display: none;
   opacity: 0;
   padding-top: 3em;
 }
@@ -447,26 +460,35 @@ h1, h2, h3, p, a {
 }
 .page__text {
   color: $white-color;
+  font-size: 1.2em;
+  margin-top: 1.5em;
 }
 .page__content.is-active {
-  opacity: 1;
+  display: block;
+  @include animation(fade-in .3s ease-in);
+  @include animation-delay(.1s);
+  @include animation-fill-mode(forwards);
 }
 .page__close {
   display: none;
   opacity: 0;
   position: absolute;
-  right: .5em;
-  top: .5em;
-  color: $highlight-color;
+  right: 2em;
+  top: 1em;
+  color: $white-color;
   z-index: 5;
   font-size: 2em;
   line-height: 1;
   cursor: pointer;
+  transition: color .2s ease;
+}
+.page__close:hover {
+  color: $highlight-color;
 }
 .page__close.is-active {
   display: block;
   @include animation(fade-in .3s ease-in);
-  @include animation-delay(.7s);
+  @include animation-delay(.3s);
   @include animation-fill-mode(forwards);
 }
 
