@@ -38,7 +38,7 @@
 
         <!-- TODO add arrows to navigate between opened samples -->
         <!-- TODO create and manage appropriate resolutions for hover and sample images -->
-        <ul class="samples small-block-grid-2 medium-block-grid-3 large-block-grid-3" data-hook="samples">
+        <ul class="samples small-block-grid-2 medium-block-grid-2 large-block-grid-2" data-hook="samples">
             <div class="samples__close" data-hook="close">X</div>
 
             <!-- Template for samples -->
@@ -53,7 +53,7 @@
 
                         <div class="sample__item row" data-hook="sample">
                             <div class="sample__images small-12 medium-6 large-6 columns">
-                                {{#each imageIds}}
+                                {{#each images}}
                                     <a class="image-{{id}} sample__image" data-hook="sample-image" href="{{link}}" target="_blank"></a>
                                 {{/each}}
                             </div>
@@ -102,7 +102,7 @@
         <script type="text/x-handlebars-template" data-hook="menu-template">
             {{#each this}}
                 <div class="menu__item {{menuClass}} columns" data-hook="menu-item">
-                    <a data-hook="page-link" data-page="{{id}}">{{text}}</a>
+                    <a data-hook="page-link" data-page="{{id}}" target="_blank">{{text}}</a>
 
                     <div class="menu__transition" data-hook="page-transition"></div>
                 </div>
