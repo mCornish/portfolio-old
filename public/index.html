@@ -4,10 +4,13 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Mike Cornish</title>
-    <link rel="stylesheet" href="styles/css/foundation.css"/>
+    <meta name="description" content="Mike Cornish is a developer, designer, and storyteller.">
+    <link href="https://mikecornish.net/" rel="canonical"/>
+    <!--<link rel="stylesheet" href="styles/css/foundation.css"/>-->
+    <link rel="stylesheet" href="styles/css/foundation.min.css"/>
     <link rel="stylesheet" href="styles/css/main.css"/>
+    <!--<link rel="stylesheet" href="styles/css/main.min.css"/>-->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
-    <script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
 
@@ -38,12 +41,13 @@
 
         <!-- TODO add arrows to navigate between opened samples -->
         <!-- TODO create and manage appropriate resolutions for hover and sample images -->
-        <ul class="samples small-block-grid-2 medium-block-grid-2 large-block-grid-2" data-hook="samples">
+        <ul class="samples small-block-grid-1 medium-block-grid-2 large-block-grid-2" data-hook="samples">
             <div class="samples__close" data-hook="close">X</div>
 
-            <!-- Template for samples -->
-            <script type="text/x-handlebars-template" data-hook="sample-template">
-                {{#each this}}
+            <div class="samples__container">
+                <!-- Template for samples -->
+                <script type="text/x-handlebars-template" data-hook="sample-template">
+                    {{#each this}}
                     <li class="sample">
                         <div class="thumbnail-container" data-hook="thumbnail-container">
                             <div class="thumbnail__transition" data-hook="transition"></div>
@@ -54,7 +58,8 @@
                         <div class="sample__item row" data-hook="sample">
                             <div class="sample__images small-12 medium-6 large-6 columns">
                                 {{#each images}}
-                                    <a class="image-{{id}} sample__image" data-hook="sample-image" href="{{link}}" target="_blank"></a>
+                                <a class="image-{{id}} sample__image" data-hook="sample-image" href="{{link}}"
+                                   target="_blank"></a>
                                 {{/each}}
                             </div>
 
@@ -64,12 +69,41 @@
                                 <h2 class="sample__subheader text-center">{{subheader}}</h2>
 
                                 <p class="sample__text">{{{content}}}</p>
+                                {{#each images}}
+                                <h3 class="sample__section-head text-center">{{header}}</h3>
+
+                                <p class="sample__text">{{{content}}}</p>
+                                {{/each}}
                             </div>
                         </div>
-                    </li>
-                {{/each}}
-            </script>
 
+                        <!-- Mobile template -->
+                        <div class="sample__item sample__item--mobile" data-hook="sample">
+                            <div class="sample__content small-12 medium-6 large-6 columns" data-hook="sample-content">
+                                <h1 class="sample__header text-center">{{header}}</h1>
+
+                                <h2 class="sample__subheader text-center">{{subheader}}</h2>
+
+                                <p class="sample__text">{{{content}}}</p>
+                            </div>
+
+                            {{#each images}}
+                            <div class="sample__images small-12 medium-6 large-6 columns">
+                                <a class="image-{{id}} sample__image" data-hook="sample-image" href="{{link}}"
+                                   target="_blank"></a>
+                            </div>
+                            <div class="sample__content small-12 medium-6 large-6 columns" data-hook="sample-content">
+                                <h2 class="sample__subheader text-center">{{header}}</h2>
+
+                                <p class="sample__text">{{{content}}}</p>
+                            </div>
+                            {{/each}}
+
+                        </div>
+                    </li>
+                    {{/each}}
+                </script>
+            </div>
         </ul>
     </div>
 
@@ -80,20 +114,20 @@
         <!-- Template for pages -->
         <script type="text/x-handlebars-template" data-hook="page-template">
             {{#each this}}
-                <div class="page page-{{id}}" data-hook="page" data-page="{{id}}">
-                    <div class="page__content" data-hook="page-content">
-                        <div class="row">
-                            <h1 class="page__header small-12 small-centered columns">{{header}}</h1>
-                        </div>
-                        <div class="row">
-                            <p class="page__text small-10 medium-10 large-10 small-centered columns">{{{content}}}</p>
-                        </div>
+            <div class="page page-{{id}}" data-hook="page" data-page="{{id}}">
+                <div class="page__content" data-hook="page-content">
+                    <div class="row">
+                        <h1 class="page__header small-12 small-centered columns">{{header}}</h1>
+                    </div>
+                    <div class="row">
+                        <p class="page__text small-10 medium-10 large-10 small-centered columns">{{{content}}}</p>
                     </div>
                 </div>
+            </div>
             {{/each}}
         </script>
-
     </div>
+
 </div>
 
 <!-- TODO create carousel for pages -->
@@ -101,16 +135,17 @@
     <div class="row small-collapse" data-hook="menu-list">
         <script type="text/x-handlebars-template" data-hook="menu-template">
             {{#each this}}
-                <div class="menu__item {{menuClass}} columns" data-hook="menu-item">
-                    <a data-hook="page-link" data-page="{{id}}" target="_blank">{{text}}</a>
+            <div class="menu__item {{menuClass}} columns" data-hook="menu-item">
+                <a data-hook="page-link" data-page="{{id}}" target="_blank">{{text}}</a>
 
-                    <div class="menu__transition" data-hook="page-transition"></div>
-                </div>
+                <div class="menu__transition" data-hook="page-transition"></div>
+            </div>
             {{/each}}
         </script>
     </div>
 </div>
 
 <script src="js/app.js"></script>
+<!--<script src="js/app.min.js"></script>-->
 </body>
 </html>

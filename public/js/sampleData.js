@@ -44,29 +44,26 @@ var Samples = [
         images: [
             {
                 id: 2,
-                link: 'http://onlinecatalog.ikea-usa.com/US/en/Nesting/'
+                link: 'http://onlinecatalog.ikea-usa.com/US/en/Nesting/',
+                header: 'IKEA',
+                content: 'What I did for IKEA.'
             },
             {
                 id: 3,
-                link: 'http://ohmohedidnt.com/'
+                link: 'http://ohmohedidnt.com/',
+                header: 'OhMohHeDidn\'t',
+                content: 'Won an award.'
             },
             {
                 id: 4,
-                link: 'http://www.brownsteingroup.com/portfolio/beneficial/beneficial-1/'
+                link: 'http://www.brownsteingroup.com/portfolio/beneficial/beneficial-1/',
+                header: 'Beneficial Bank',
+                content: 'Its a bank.'
             }
         ],
         header: 'Contributions',
         subheader: 'A story of experiences',
-        content: 'Over the past few years, I have interned at different companies that range from a small agency to a worldwide corporation. During those experiences, I made many contributions to projects that have since been changed or otherwise made unavailable. Some of those contributions are noted here.' +
-        '<br><br>' +
-        '<h3 class="sample__section-head" data-hook="ikea-link">IKEA</h3>' +
-        '<p class="sample__text">Here is what I did for IKEA</p>' +
-        '<br><br>' +
-        '<h3 class="sample__section-head" data-hook="omhd-link">OhMoHeDidn\'t</h3>' +
-        '<p class="sample__text">This won an award.</p>' +
-        '<br><br>' +
-        '<h3 class="sample__section-head" data-hook="beneficial-link">Benficial Bank</h3>' +
-        '<p class="sample__text">I made some animations.</p>'
+        content: 'Over the past few years, I have interned at different companies that range from a small agency to a worldwide corporation. During those experiences, I made many contributions to projects that have since been changed or otherwise made unavailable. Some of those contributions are noted here.'
     }
 ];
 

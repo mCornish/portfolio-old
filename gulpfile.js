@@ -7,7 +7,9 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserify = require('gulp-browserify'),
     rename = require('gulp-rename'),
-    qunit = require('gulp-qunit');
+    qunit = require('gulp-qunit'),
+    uglify = require('gulp-uglify'),
+    minifyCss = require('gulp-minify-css');
 
 var debug = true;
 
@@ -28,6 +30,20 @@ gulp.task('sass', function() {
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/styles/css'))
         .pipe(browserSync.stream());
+});
+
+gulp.task('uglify', function() {
+    return gulp.src('./public/js/app.js')
+        .pipe(uglify())
+        .pipe(rename('app.min.js'))
+        .pipe(gulp.dest('./public/js'));
+});
+
+gulp.task('minify-css', function() {
+    return gulp.src('./public/styles/css/main.css')
+        .pipe(minifyCss())
+        .pipe(rename('main.min.css'))
+        .pipe(gulp.dest('./public/styles/css'));
 });
 
 gulp.task('browserify', function() {
@@ -53,4 +69,4 @@ gulp.task('test', function() {
 
 gulp.task('default', ['test', 'browserify', 'serve']);
 
-gulp.task('build', ['sass', 'test', 'browserify']);
+gulp.task('build', ['sass', 'minify-css', 'test', 'browserify', 'uglify']);
