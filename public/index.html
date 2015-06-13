@@ -95,6 +95,8 @@
                             <div class="sample__content small-12 medium-6 large-6 columns" data-hook="sample-content">
                                 <h2 class="sample__subheader text-center">{{header}}</h2>
 
+                                <h3 class="sample__section-head">{{subheader}}</h3>
+
                                 <p class="sample__text">{{{content}}}</p>
                             </div>
                             {{/each}}
@@ -126,8 +128,10 @@
             </div>
             {{/each}}
         </script>
+
     </div>
 
+    <div class="modal__background" data-hook="modal-back"></div>
 </div>
 
 <!-- TODO create carousel for pages -->
@@ -147,5 +151,6 @@
 
 <script src="js/app.js"></script>
 <!--<script src="js/app.min.js"></script>-->
+
 </body>
 </html>

@@ -4,16 +4,21 @@ var Samples = [
         images: [
             {
                 id: 1,
-                link: 'http://www.story.mikecornish.net'
+                link: 'http://www.story.mikecornish.net',
+                //header: 'Story Blog',
+                //subheader: 'The Story of a Storyteller',
+                content: 'I originally created MikeCornish.net to be a resource that creative minds could use to apply storytelling in new ways. Time constraints kept me from following through on the end goal, but the website remains as my first attempt building a single-page app from scratch.' +
+                '<br><br>' +
+                'The website is built on AngularJS and uses Gulp for optimization and deployment bundling.'
             }
         ],
         header: 'Story Blog',
         subheader: 'The story of a storyteller',
-        content: 'Back in late 2014, I started studying storytelling, both as a writing tool, and as a business tool. Books like <em>The Storytelling Animal</em> and <em>Wired for Story</em> explain that people respond to stories, no matter the context. I wanted to understand why, and how I could use it in my creative work.' +
-        '<br><br>' +
-        'I originally created MikeCornish.net to be a resource that creative minds could use to apply storytelling in new ways. Time constraints kept me from following through on the end goal, but the website remains as my first attempt building a single-page app from scratch.' +
-        '<br><br>' +
-        'The website is built on AngularJS and uses Gulp for optimization and deployment bundling.'
+        content: 'Back in late 2014, I started studying storytelling, both as a writing tool, and as a business tool. Books like <em>The Storytelling Animal</em> and <em>Wired for Story</em> explain that people respond to stories, no matter the context. I wanted to understand why, and how I could use it in my creative work.'
+        //'<br><br>' +
+        //'I originally created MikeCornish.net to be a resource that creative minds could use to apply storytelling in new ways. Time constraints kept me from following through on the end goal, but the website remains as my first attempt building a single-page app from scratch.' +
+        //'<br><br>' +
+        //'The website is built on AngularJS and uses Gulp for optimization and deployment bundling.'
     },
     //{
     //    id: 1,

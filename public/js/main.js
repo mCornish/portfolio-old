@@ -1,6 +1,8 @@
 'use strict';
 
 var $ = require('jquery'),
+    Mixpanel = require('mixpanel'),
+    mixpanel = Mixpanel.init('3f920f1325b407efd7d1e6df75fe01b1'),
     sample = require('./sample'),
     sampleTemplate = require('./sampleTemplate'),
     pageTemplate = require('./pageTemplate'),
@@ -13,9 +15,13 @@ var $ = require('jquery'),
     $('[data-hook=thumbnail]').on('click', function (e) {
         e.preventDefault();
 
+        mixpanel.track('Sample open', {
+            sample: ''
+        });
+
         var $link = $(e.target);
         // check whether this page is already open
-        if ($link.hasClass('is-active')) {
+        if (sample.isOpen($link)) {
             closeWindows();
             return;
         }
@@ -29,6 +35,10 @@ var $ = require('jquery'),
     $('[data-hook=close]').on('click', function (e) {
         e.preventDefault();
 
+        mixpanel.track('Sample close', {
+            sample: ''
+        });
+
         sample.close();
     });
 
@@ -36,32 +46,40 @@ var $ = require('jquery'),
     $('[data-hook=page-link]').on('click', function (e) {
         e.preventDefault();
 
+        mixpanel.track('Page open', {
+            page: ''
+        });
+
         var $link = $(e.target);
-        var $menuItem = $link.parent('[data-hook=menu-item]');
         // check whether this page is already open
-        if ($menuItem.hasClass('is-active')) {
+        if (page.isOpen($link)) {
             closeWindows();
             return;
         }
         closeWindows(function() {
             page.open($link);
-        });
+        }, true);
     });
 
     // Click event for closing page container
     $('[data-hook=page-close]').on('click', function (e) {
         e.preventDefault();
 
+        mixpanel.track('Page close', {
+            page: ''
+        });
+
         page.close();
     });
 
     // Close any open samples/pages
-    function closeWindows(callback) {
-        if (sample.isOpen()) {
-            sample.close();
+    // isTransition determines whether the transition should stay open (avoiding flash of color on open-close
+    function closeWindows(callback, isTransition) {
+        if (sample.anyOpen()) {
+            sample.close(isTransition);
         }
-        if (page.isOpen()) {
-            page.close();
+        if (page.anyOpen()) {
+            page.close(isTransition);
         }
 
         callback();

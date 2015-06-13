@@ -256,7 +256,15 @@ h1, h2, h3, p, a {
   display: block; }
 
 .sample__item--mobile {
-  overflow: scroll; }
+  overflow: scroll;
+  padding-bottom: 20vh; }
+
+.sample__item--mobile .sample__images {
+  height: 30vh;
+  overflow: hidden; }
+
+.sample__item--mobile .sample__content {
+  height: auto; }
 
 @media only screen {
   .sample__item {
@@ -287,7 +295,7 @@ h1, h2, h3, p, a {
   .sample__image:only-child,
   .sample__image:only-child:hover,
   .sample__content {
-    height: 35vh; } }
+    height: 40vh; } }
 
 @media only screen and (min-width: 35.61111em) {
   .sample__images,
@@ -317,12 +325,16 @@ h1, h2, h3, p, a {
   .sample__image {
     background-size: auto 120%;
     background-repeat: no-repeat;
-    height: 30vh; } }
+    height: 30vh; }
+  .sample__image:only-child {
+    height: 45vh; } }
 
 @media only screen and (min-width: 35.61111em) {
   .sample__image {
     background-repeat: repeat;
-    height: 30vh; } }
+    height: 30vh; }
+  .sample__image:only-child {
+    height: 90vh; } }
 
 @media only screen and (min-width: 80.05556em) {
   .sample__image {
@@ -375,6 +387,22 @@ h1, h2, h3, p, a {
   opacity: 0;
   padding: 3em;
   overflow: scroll; }
+
+@media only screen {
+  .sample__item--mobile .sample__images {
+    height: 30vh;
+    overflow: hidden; }
+  .sample__image {
+    background-size: auto 120%;
+    background-repeat: no-repeat;
+    height: 30vh; }
+  .sample__image:hover {
+    height: 40vh; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .sample__image {
+    background-repeat: repeat;
+    height: 30vh; } }
 
 .sample__content.is-active {
   display: block;
@@ -525,6 +553,16 @@ h1, h2, h3, p, a {
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
 
+.modal__background {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: #36464e;
+  z-index: 1; }
+
 .menu {
   position: absolute;
   bottom: 0;
@@ -553,6 +591,14 @@ h1, h2, h3, p, a {
   position: relative;
   line-height: 10vh;
   z-index: 1; }
+
+@media only screen {
+  .menu__item a {
+    font-size: 1.3em; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .menu__item a {
+    font-size: 1em; } }
 
 .menu__item a:hover,
 .menu__item a:focus {
