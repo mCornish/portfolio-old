@@ -22,6 +22,9 @@ h1, h2, h3, p, a {
   font-family: 'Lato', sans-serif;
   color: #404040; }
 
+.content-container {
+  overflow: hidden; }
+
 @media only screen {
   .content-container {
     height: 80vh;
@@ -369,16 +372,19 @@ h1, h2, h3, p, a {
   border-top: 3px solid #36464e; }
 
 .image-1 {
-  background-image: url("../../img/portfolio_story.jpg"); }
+  background-image: url("../../img/portfolio_story.jpg");
+  background-position: top left; }
 
 .image-2 {
   background-image: url("../../img/ikea.png"); }
 
 .image-3 {
-  background-image: url("../../img/omhd.png"); }
+  background-image: url("../../img/omhd.png");
+  background-position: bottom center; }
 
 .image-4 {
-  background-image: url("../../img/beneficial.png"); }
+  background-image: url("../../img/beneficial.png");
+  background-position: center right; }
 
 .sample__content {
   right: 0;
@@ -392,10 +398,6 @@ h1, h2, h3, p, a {
   .sample__item--mobile .sample__images {
     height: 30vh;
     overflow: hidden; }
-  .sample__image {
-    background-size: auto 120%;
-    background-repeat: no-repeat;
-    height: 30vh; }
   .sample__image:hover {
     height: 40vh; } }
 
