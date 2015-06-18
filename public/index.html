@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles/css/foundation.min.css"/>
     <link rel="stylesheet" href="styles/css/main.css"/>
     <!--<link rel="stylesheet" href="styles/css/main.min.css"/>-->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic|Merriweather|Merriweather+Sans:800' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -41,7 +41,7 @@
 
         <!-- TODO add arrows to navigate between opened samples -->
         <!-- TODO create and manage appropriate resolutions for hover and sample images -->
-        <ul class="samples small-block-grid-1 medium-block-grid-2 large-block-grid-2" data-hook="samples">
+        <ul class="samples small-block-grid-1 medium-block-grid-3 large-block-grid-3" data-hook="samples">
             <div class="samples__close" data-hook="close">X</div>
 
             <div class="samples__container">
@@ -50,9 +50,10 @@
                     {{#each this}}
                     <li class="sample">
                         <div class="thumbnail-container" data-hook="thumbnail-container">
+                            <div class="thumbnail-{{id}} thumbnail" data-hook="thumbnail">{{header}}<span class="thumbnail__alt-header" data-hook="thumbnail-child">{{altHeader}}</span></div>
                             <div class="thumbnail__transition" data-hook="transition"></div>
-                            <div class="thumbnail-{{id}} thumbnail" data-hook="thumbnail"></div>
-                            <div class="thumbnail__hover">{{header}}</div>
+                            <!--<div class="thumbnail-{{id}} thumbnail" data-hook="thumbnail"></div>-->
+                            <!--<div class="thumbnail__hover">{{header}}</div>-->
                         </div>
 
                         <div class="sample__item row" data-hook="sample">

@@ -42,6 +42,9 @@ var sample = {
                     $('[data-hook=transition].is-active').removeClass('is-active');
                     $('[data-hook=sample].is-active').removeClass('is-active');
                     $('[data-hook=thumbnail].is-active').addClass('wobble').removeClass('is-active');
+                    setTimeout(function() {
+                        $('[data-hook=thumbnail].wobble').removeClass('wobble');
+                    }, 1000);
                 });
             });
         });

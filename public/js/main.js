@@ -28,7 +28,12 @@ var $ = require('jquery'),
         closeWindows(function() {
             sample.open($link);
         });
+    });
+    // Also trigger click for thumbnails' children
+    $('[data-hook=thumbnail-child]').on('click', function(e) {
+        e.preventDefault();
 
+        $(this).parent().trigger('click');
     });
 
     // Click event for closing sample container
@@ -82,6 +87,8 @@ var $ = require('jquery'),
             page.close(isTransition);
         }
 
-        callback();
+        if (callback) {
+            callback();
+        }
     }
 })();

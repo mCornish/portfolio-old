@@ -12,7 +12,8 @@ var Samples = [
                 'The website is built on AngularJS and uses Gulp for optimization and deployment bundling.'
             }
         ],
-        header: 'Story Blog',
+        header: 'Story',
+        altHeader: 'Blog',
         subheader: 'The story of a storyteller',
         content: 'Back in late 2014, I started studying storytelling, both as a writing tool, and as a business tool. Books like <em>The Storytelling Animal</em> and <em>Wired for Story</em> explain that people respond to stories, no matter the context. I wanted to understand why, and how I could use it in my creative work.'
         //'<br><br>' +
@@ -45,7 +46,7 @@ var Samples = [
     //    'Most of my design experience comes from leading the design of an on-campus organization and working on small, personal projects, but I\'m currently working on expanding my work to entire brands.'
     //},
     {
-        id: 1,
+        id: 2,
         images: [
             {
                 id: 2,
@@ -69,6 +70,19 @@ var Samples = [
         header: 'Contributions',
         subheader: 'A story of experiences',
         content: 'Over the past few years, I have interned at different companies that range from a small agency to a worldwide corporation. During those experiences, I made many contributions to projects that have since been changed or otherwise made unavailable. Some of those contributions are noted here.'
+    },
+    {
+        id: 3,
+        images: [
+            {
+                id: 1,
+                link: 'blog.mikecornish.net',
+                content: 'What I did for IKEA.'
+            }
+        ],
+        header: 'devStory',
+        subheader: 'A story of sharing',
+        content: 'Sharing my experiences.'
     }
 ];
 

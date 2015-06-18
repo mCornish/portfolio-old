@@ -224,10 +224,6 @@ h1, h2, h3, p, a {
 }
 .thumbnail-container {
   display: block;
-  width: 25vw;
-  height: 25vw;
-  max-width: 400px;
-  max-height: 400px;
   margin: 0 auto;
   left: 0;
   top: 0;
@@ -238,7 +234,19 @@ h1, h2, h3, p, a {
   height: 200vh;
   left: -100vw;
   top: -100vh;
-  background-color: $secondary-color;
+}
+.thumbnail {
+  text-align: center;
+  font-size: 2em;
+  font-weight: $bold-weight;
+  cursor: pointer;
+  transition: all .2s ease;
+  color: $primary-color;
+  position: relative;
+}
+.thumbnail:hover {
+  font-size: 2.2em;
+  color: $highlight-color;
 }
 .thumbnail__transition {
   display: block;
@@ -251,7 +259,7 @@ h1, h2, h3, p, a {
   top: 50%;
   position: absolute;
   padding: 3em;
-  z-index: 0;
+  z-index: -1;
   @include transition('all .2s linear, background-color 0s');
 }
 .thumbnail__transition.is-active {
@@ -261,35 +269,26 @@ h1, h2, h3, p, a {
   top: -100vh;
   background-color: $secondary-color;
 }
-.thumbnail-1 {
-  background-image: url('../../img/portfolio_earth.svg');
+.thumbnail-1:hover {
+  font-family: 'Merriweather';
+  @include animation('float 3s ease infinite, rock 5s ease infinite');
 }
-.thumbnail {
-  display: block;
-  opacity: 1;
-  width: 25vw;
-  height: 25vw;
-  max-width: 400px;
-  max-height: 400px;
-  background-position: center center;
-  margin: 0 auto;
-  left: 0;
-  top: 0;
-  position: relative;
-  cursor: pointer;
-  z-index: 1;
-  border-radius: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  background-blend-mode: multiply;
-  @include transition(all .2s ease-in);
+.thumbnail-1:hover .thumbnail__alt-header {
+  font-family: 'Merriweather Sans';
+  font-weight: 800;
+}
+.thumbnail-3:hover {
+  font-family: 'Courier';
+  font-weight: normal;
+}
+.thumbnail-3:hover::after {
+  content: '|';
+  font-weight: $bold-weight;
+  @include animation(blink 1.2s ease infinite);
+
 }
 .thumbnail:active {
   @include transform( scale(1.05,1.05) );
-}
-.thumbnail:hover {
-  background-color: $tertiary-color;
 }
 .thumbnail.is-hidden {
   opacity: 0;
@@ -298,17 +297,6 @@ h1, h2, h3, p, a {
 .thumbnail.wobble {
   @include animation(wobble .2s ease-in);
   @include animation-delay(.2s);
-}
-.thumbnail__hover {
-  text-align: center;
-  opacity: 0;
-  color: $highlight-color;
-  font-weight: $bold-weight;
-  font-size: 2em;
-  @include transition(opacity .2s ease-in);
-}
-.thumbnail:hover + .thumbnail__hover {
-  opacity: 1;
 }
 .sample__hover {
   position: absolute;
@@ -729,6 +717,20 @@ h1, h2, h3, p, a {
     @include filter(grayscale(1));
   }
 }
+@include keyframes(blink) {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  71% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @include keyframes(click) {
   0% {
     @include transform( scale(1,1) );
@@ -743,18 +745,26 @@ h1, h2, h3, p, a {
     @include transform( scale(1,1) );
   }
 }
-@include keyframes(wobble) {
+@include keyframes(float) {
   0% {
-    @include transform( scale(1,1) );
+    top: -.1em;
   }
-  33% {
-    @include transform( scale(.9,.9) );
+  50% {
+    top: .1em;
   }
-  66% {
-    @include transform( scale(1.05,1.05) );
+  100% {
+    top: -.1em;
   }
-  100%{
-    @include transform( scale(1,1) );
+}
+@include keyframes(rock) {
+  0% {
+    @include transform( rotate( 3deg ) );
+  }
+  50% {
+    @include transform( rotate( -3deg ) );
+  }
+  100% {
+    @include transform( rotate( 3deg ) );
   }
 }
 @include keyframes(snap) {
@@ -769,5 +779,19 @@ h1, h2, h3, p, a {
   }
   100% {
     @include transform( scaleX(1) );
+  }
+}
+@include keyframes(wobble) {
+  0% {
+    @include transform( scale(1,1) );
+  }
+  33% {
+    @include transform( scale(.9,.9) );
+  }
+  66% {
+    @include transform( scale(1.05,1.05) );
+  }
+  100%{
+    @include transform( scale(1,1) );
   }
 }
