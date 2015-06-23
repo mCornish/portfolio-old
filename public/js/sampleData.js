@@ -5,8 +5,6 @@ var Samples = [
             {
                 id: 1,
                 link: 'http://www.story.mikecornish.net',
-                //header: 'Story Blog',
-                //subheader: 'The Story of a Storyteller',
                 content: 'I originally created MikeCornish.net to be a resource that creative minds could use to apply storytelling in new ways. Time constraints kept me from following through on the end goal, but the website remains as my first attempt building a single-page app from scratch.' +
                 '<br><br>' +
                 'The website is built on AngularJS and uses Gulp for optimization and deployment bundling.'
@@ -16,35 +14,7 @@ var Samples = [
         altHeader: 'Blog',
         subheader: 'The story of a storyteller',
         content: 'Back in late 2014, I started studying storytelling, both as a writing tool, and as a business tool. Books like <em>The Storytelling Animal</em> and <em>Wired for Story</em> explain that people respond to stories, no matter the context. I wanted to understand why, and how I could use it in my creative work.'
-        //'<br><br>' +
-        //'I originally created MikeCornish.net to be a resource that creative minds could use to apply storytelling in new ways. Time constraints kept me from following through on the end goal, but the website remains as my first attempt building a single-page app from scratch.' +
-        //'<br><br>' +
-        //'The website is built on AngularJS and uses Gulp for optimization and deployment bundling.'
     },
-    //{
-    //    id: 1,
-    //    imageIds: [{id: 1}],
-    //    header: 'Neeks & Gerds',
-    //    subheader: 'The story of an inspired geek',
-    //    link: 'http://www.neeksandgerds.com',
-    //    content: 'Years ago, I was an avid blogger. Whenever I wasn\'t in class I was researching, writing, or building an audience. This work culminated in Neeks and Gerds, my biggest bolg and my first experience with web design.' +
-    //    '<br><br>' +
-    //    'I didn\'nt know much about design or storytelling back then, but I still knew that I had to make Neeks and Gerds something special. I focused on community, and telling the stories of an often-rejected group of individuals — geeks. It seemed to work, getting the attenion of a geeky internet celebrity, Felicia Day, as well as a few sponsors.' +
-    //    '<br><br>' +
-    //    'Neeks & Gerds was built on Wordpress with custom CSS and a few plugins.'
-    //},
-    //{
-    //    id: 1,
-    //    imageIds: [{id: 1}],
-    //    header: 'My Designs',
-    //    subheader: 'A story of simplicity and function',
-    //    link: '',
-    //    content: 'I\'m a subscriber of the idea that design should be so simple and so natural that it goes unnoticed. Interacting with a UI should require little-to-no thought. Reading an promotional poster should be effortless. Yet, design should also be unified by a story.' +
-    //    '<br><br>' +
-    //    'I try to create my designs like characters, giving them a personality that resonates in their voice, appearance, content, and interactions. People understand and relate to characters, the same way I want them to relate to my designs.' +
-    //    '<br><br>' +
-    //    'Most of my design experience comes from leading the design of an on-campus organization and working on small, personal projects, but I\'m currently working on expanding my work to entire brands.'
-    //},
     {
         id: 2,
         images: [
@@ -52,19 +22,21 @@ var Samples = [
                 id: 2,
                 link: 'http://onlinecatalog.ikea-usa.com/US/en/Nesting/',
                 header: 'IKEA',
-                content: 'What I did for IKEA.'
+                content: 'Being a large brand, IKEA has many marketing projects that constantly need to be updated. These include emails, digital brochures, banner ads, and web pages. ' +
+                '<br><br>' +
+                'For 6 months, I helped maintain these projects. I developed 2 seasonal brochures, built dozens of emails, and created many banner ads, both static and animated.'
             },
             {
                 id: 3,
                 link: 'http://ohmohedidnt.com/',
                 header: 'OhMohHeDidn\'t',
-                content: 'Won an award.'
+                content: 'For <a href="https://us.movember.com/about/?landing" target="_blank">Movember 2014</a>, one of my coworkers designed a website to raise funds for men\'s health. I lead the development of the website, which won a <a href="http://www.brownsteingroup.com/posts/brownstein-group-wins-best-in-show-at-the-2014-philadelphia-addy-awards/" target="_blank">Best in Show award from the Philly Ad Club</a>.'
             },
             {
                 id: 4,
                 link: 'http://www.brownsteingroup.com/portfolio/beneficial/beneficial-1/',
                 header: 'Beneficial Bank',
-                content: 'Its a bank.'
+                content: 'For Benficial Bank\'s marketing overhaul in 2014, I worked with Browstein Group\'s design team to make their designs come to life. Most of my work involved creating animations that were displayed in banner ads and on television screens in front of the bank.'
             }
         ],
         header: 'Contributions',
@@ -77,12 +49,12 @@ var Samples = [
             {
                 id: 1,
                 link: 'blog.mikecornish.net',
-                content: 'What I did for IKEA.'
+                content: 'Storytelling is everywhere. Authors aren\'t the only ones telling stories. Marketers tells stories to consumers. Musicians tell stories to anyone who listens to their music. Lawyers tell stories to juries. However, devStory isn\'t a blog for marketers or musicians, and certainly not lawyers. It\'s is a blog for web developers; we tell stories too.'
             }
         ],
         header: 'devStory',
         subheader: 'A story of sharing',
-        content: 'Sharing my experiences.'
+        content: '<em>devStory</em> is my current blog, through which I share my experiences as a web developer.'
     }
 ];
 

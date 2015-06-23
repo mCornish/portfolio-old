@@ -1,3 +1,6 @@
+html {
+  overflow: hidden; }
+
 @media only screen {
   html {
     font-size: 16px; } }
@@ -38,10 +41,26 @@ h1, h2, h3, p, a {
 .logo {
   font-size: 3em; }
 
+@media only screen {
+  .headline {
+    font-size: 1em; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .headline {
+    font-size: 2.5em; } }
+
 .name {
   font-weight: 900;
   margin-top: 1em;
   margin-bottom: 0; }
+
+@media only screen {
+  .name {
+    font-size: 1.8em; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .headline {
+    font-size: 2.5em; } }
 
 .text-rotate {
   position: relative;
@@ -96,8 +115,17 @@ h1, h2, h3, p, a {
   -o-transform: rotateX(-90deg);
   transform: rotateX(-90deg); }
 
-.samples {
-  margin-top: 15vh; }
+@media only screen {
+  .samples {
+    margin-top: 12vh; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .samples {
+    margin-top: 15vh; } }
+
+@media only screen and (min-width: 56.94444em) {
+  .samples {
+    margin-top: 25vh; } }
 
 .thumbnail-container {
   display: block;
@@ -114,16 +142,33 @@ h1, h2, h3, p, a {
 
 .thumbnail {
   text-align: center;
-  font-size: 2em;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   color: #607c8a;
-  position: relative; }
+  position: relative;
+  margin-bottom: 1em; }
 
-.thumbnail:hover {
-  font-size: 2.2em;
-  color: #f44034; }
+@media only screen {
+  .thumbnail {
+    font-size: 1.5em; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .thumbnail {
+    font-size: 1.8em; } }
+
+@media only screen and (min-width: 56.94444em) {
+  .thumbnail {
+    font-size: 2em; } }
+
+@media only screen {
+  .thumbnail:hover {
+    color: #f44034; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .thumbnail:hover {
+    font-size: 2.5em;
+    color: #f44034; } }
 
 .thumbnail__transition {
   display: block;
@@ -150,30 +195,28 @@ h1, h2, h3, p, a {
   top: -100vh;
   background-color: #36464e; }
 
-.thumbnail-1:hover {
-  font-family: 'Merriweather';
-  -webkit-animation: float 3s ease infinite, rock 5s ease infinite;
-  -moz-animation: float 3s ease infinite, rock 5s ease infinite;
-  -ms-animation: float 3s ease infinite, rock 5s ease infinite;
-  -o-animation: float 3s ease infinite, rock 5s ease infinite;
-  animation: float 3s ease infinite, rock 5s ease infinite; }
-
-.thumbnail-1:hover .thumbnail__alt-header {
-  font-family: 'Merriweather Sans';
-  font-weight: 800; }
-
-.thumbnail-3:hover {
-  font-family: 'Courier';
-  font-weight: normal; }
-
-.thumbnail-3:hover::after {
-  content: '|';
-  font-weight: 700;
-  -webkit-animation: blink 1.2s ease infinite;
-  -moz-animation: blink 1.2s ease infinite;
-  -ms-animation: blink 1.2s ease infinite;
-  -o-animation: blink 1.2s ease infinite;
-  animation: blink 1.2s ease infinite; }
+@media only screen and (min-width: 35.61111em) {
+  .thumbnail-1:hover {
+    font-family: 'Merriweather';
+    -webkit-animation: float 3s ease infinite, rock 5s ease infinite;
+    -moz-animation: float 3s ease infinite, rock 5s ease infinite;
+    -ms-animation: float 3s ease infinite, rock 5s ease infinite;
+    -o-animation: float 3s ease infinite, rock 5s ease infinite;
+    animation: float 3s ease infinite, rock 5s ease infinite; }
+  .thumbnail-1:hover .thumbnail__alt-header {
+    font-family: 'Merriweather Sans';
+    font-weight: 800; }
+  .thumbnail-3:hover {
+    font-family: 'Courier';
+    font-weight: normal; }
+  .thumbnail-3:hover::after {
+    content: '|';
+    font-weight: 700;
+    -webkit-animation: blink 1.2s ease infinite;
+    -moz-animation: blink 1.2s ease infinite;
+    -ms-animation: blink 1.2s ease infinite;
+    -o-animation: blink 1.2s ease infinite;
+    animation: blink 1.2s ease infinite; } }
 
 .thumbnail:active {
   -webkit-transform: scale(1.05, 1.05);
@@ -292,7 +335,8 @@ h1, h2, h3, p, a {
   .sample__image:only-child,
   .sample__image:only-child:hover,
   .sample__content {
-    height: 90vh; } }
+    height: 90vh;
+    background-size: cover; } }
 
 .sample__image {
   display: none;
@@ -362,6 +406,16 @@ h1, h2, h3, p, a {
   background-image: url("../../img/portfolio_story.jpg");
   background-position: top left; }
 
+@media only screen {
+  .image-1 {
+    background-size: 120% auto;
+    background-position: center left; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .image-1 {
+    background-size: cover;
+    background-position: top left; } }
+
 .image-2 {
   background-image: url("../../img/ikea.png"); }
 
@@ -411,6 +465,13 @@ h1, h2, h3, p, a {
   -o-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
 
+.sample__content a {
+  color: #fafafa;
+  border-bottom: 1px solid #fafafa; }
+
+.sample__content a:hover {
+  color: #99aeb8; }
+
 .sample__header,
 .sample__subheader,
 .sample__text {
@@ -428,19 +489,28 @@ h1, h2, h3, p, a {
   color: #fafafa;
   font-weight: 100;
   font-size: 1.2em;
-  text-align: center; }
+  text-align: center;
+  margin-top: 2.5em; }
 
 .samples__close {
   display: none;
   opacity: 0;
   position: absolute;
-  right: 2em;
-  top: 1em;
   color: #fafafa;
   z-index: 5;
   font-size: 2em;
   line-height: 1;
   cursor: pointer; }
+
+@media only screen {
+  .samples__close {
+    top: .5em;
+    right: 1em; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .samples__close {
+    top: 1em;
+    right: 2em; } }
 
 .samples__close:hover {
   color: #f44034; }
@@ -479,7 +549,9 @@ h1, h2, h3, p, a {
 .page__content {
   display: none;
   opacity: 0;
-  padding-top: 3em; }
+  padding-top: 3em;
+  height: 100vh;
+  overflow: scroll; }
 
 .page__header {
   color: #fafafa;
@@ -512,14 +584,22 @@ h1, h2, h3, p, a {
   display: none;
   opacity: 0;
   position: absolute;
-  right: 2em;
-  top: 1em;
   color: #fafafa;
   z-index: 5;
   font-size: 2em;
   line-height: 1;
   cursor: pointer;
   transition: color 0.2s ease; }
+
+@media only screen {
+  .page__close {
+    top: .5em;
+    right: 1em; } }
+
+@media only screen and (min-width: 35.61111em) {
+  .page__close {
+    top: 1em;
+    right: 2em; } }
 
 .page__close:hover {
   color: #f44034; }

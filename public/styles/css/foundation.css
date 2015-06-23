@@ -5541,7 +5541,7 @@ table {
       clear: none; }
     .small-block-grid-12 > li:nth-of-type(12n+1) {
       clear: both; } }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 35.611111em) {
   .medium-block-grid-1 > li {
     list-style: none;
     width: 100%; }
@@ -5637,7 +5637,7 @@ table {
       clear: none; }
     .medium-block-grid-12 > li:nth-of-type(12n+1) {
       clear: both; } }
-@media only screen and (min-width: 64.0625em) {
+@media only screen and (min-width: 56.94444em) {
   .large-block-grid-1 > li {
     list-style: none;
     width: 100%; }

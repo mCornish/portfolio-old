@@ -133,7 +133,9 @@ $xlarge-up: "#{$screen} and (min-width: #{$xlarge-range})";
   transition: #{$str};
 }
 
-
+html {
+  overflow: hidden;
+}
 @media only screen {
   html{
     font-size: $em-base - 2px;
@@ -185,10 +187,31 @@ h1, h2, h3, p, a {
   font-size: 3em;
 }
 
+@media #{$small-up} {
+  .headline {
+    font-size: 1em;
+  }
+}
+@media #{$medium-up} {
+  .headline {
+    font-size: 2.5em;
+  }
+}
+
 .name {
   font-weight: $ultra-weight;
   margin-top: 1em;
   margin-bottom: 0;
+}
+@media #{$small-up} {
+  .name {
+    font-size: 1.8em;
+  }
+}
+@media #{$medium-up} {
+  .headline {
+    font-size: 2.5em;
+  }
 }
 
 .text-rotate {
@@ -219,8 +242,20 @@ h1, h2, h3, p, a {
   @include transform(rotateX(-90deg));
 }
 
-.samples {
-  margin-top: 15vh;
+@media #{$small-up} {
+  .samples {
+    margin-top: 12vh;
+  }
+}
+@media #{$medium-up} {
+  .samples {
+    margin-top: 15vh;
+  }
+}
+@media #{$large-up} {
+  .samples {
+    margin-top: 25vh;
+  }
 }
 .thumbnail-container {
   display: block;
@@ -237,16 +272,39 @@ h1, h2, h3, p, a {
 }
 .thumbnail {
   text-align: center;
-  font-size: 2em;
   font-weight: $bold-weight;
   cursor: pointer;
   transition: all .2s ease;
   color: $primary-color;
   position: relative;
+  margin-bottom: 1em;
 }
-.thumbnail:hover {
-  font-size: 2.2em;
-  color: $highlight-color;
+@media #{$small-up} {
+  .thumbnail {
+    font-size: 1.5em;
+  }
+}
+@media #{$medium-up} {
+  .thumbnail {
+    font-size: 1.8em;
+  }
+}
+@media #{$large-up} {
+  .thumbnail {
+    font-size: 2em;
+  }
+}
+// Only color changes on mobile
+@media #{$small-up} {
+  .thumbnail:hover {
+    color: $highlight-color;
+  }
+}
+@media #{$medium-up} {
+  .thumbnail:hover {
+    font-size: 2.5em;
+    color: $highlight-color;
+  }
 }
 .thumbnail__transition {
   display: block;
@@ -269,23 +327,25 @@ h1, h2, h3, p, a {
   top: -100vh;
   background-color: $secondary-color;
 }
-.thumbnail-1:hover {
-  font-family: 'Merriweather';
-  @include animation('float 3s ease infinite, rock 5s ease infinite');
-}
-.thumbnail-1:hover .thumbnail__alt-header {
-  font-family: 'Merriweather Sans';
-  font-weight: 800;
-}
-.thumbnail-3:hover {
-  font-family: 'Courier';
-  font-weight: normal;
-}
-.thumbnail-3:hover::after {
-  content: '|';
-  font-weight: $bold-weight;
-  @include animation(blink 1.2s ease infinite);
-
+// Thumbnail hover affects don't occur on mobile
+@media #{$medium-up} {
+  .thumbnail-1:hover {
+    font-family: 'Merriweather';
+    @include animation('float 3s ease infinite, rock 5s ease infinite');
+  }
+  .thumbnail-1:hover .thumbnail__alt-header {
+    font-family: 'Merriweather Sans';
+    font-weight: 800;
+  }
+  .thumbnail-3:hover {
+    font-family: 'Courier';
+    font-weight: normal;
+  }
+  .thumbnail-3:hover::after {
+    content: '|';
+    font-weight: $bold-weight;
+    @include animation(blink 1.2s ease infinite);
+  }
 }
 .thumbnail:active {
   @include transform( scale(1.05,1.05) );
@@ -382,6 +442,7 @@ h1, h2, h3, p, a {
   .sample__image:only-child:hover,
   .sample__content {
     height: 90vh;
+    background-size: cover;
   }
 }
 .sample__image {
@@ -441,6 +502,18 @@ h1, h2, h3, p, a {
   background-image: url('../../img/portfolio_story.jpg');
   background-position: top left;
 }
+@media #{$small-up} {
+  .image-1 {
+    background-size: 120% auto;
+    background-position: center left;
+  }
+}
+@media #{$medium-up} {
+  .image-1 {
+    background-size: cover;
+    background-position: top left;
+  }
+}
 .image-2 {
   background-image: url('../../img/ikea.png');
 }
@@ -481,6 +554,13 @@ h1, h2, h3, p, a {
   @include animation-delay(.5s);
   @include animation-fill-mode(forwards);
 }
+.sample__content a {
+  color: $white-color;
+  border-bottom: 1px solid $white-color;
+}
+.sample__content a:hover {
+  color: $tertiary-color;
+}
 .sample__header,
 .sample__subheader,
 .sample__text {
@@ -499,18 +579,29 @@ h1, h2, h3, p, a {
   font-weight: $thin-weight;
   font-size: 1.2em;
   text-align: center;
+  margin-top: 2.5em;
 }
 .samples__close {
   display: none;
   opacity: 0;
   position: absolute;
-  right: 2em;
-  top: 1em;
   color: $white-color;
   z-index: 5;
   font-size: 2em;
   line-height: 1;
   cursor: pointer;
+}
+@media #{$small-up} {
+  .samples__close {
+    top: .5em;
+    right: 1em;
+  }
+}
+@media #{$medium-up} {
+  .samples__close {
+    top: 1em;
+    right: 2em;
+  }
 }
 .samples__close:hover {
   color: $highlight-color;
@@ -539,6 +630,8 @@ h1, h2, h3, p, a {
   display: none;
   opacity: 0;
   padding-top: 3em;
+  height: 100vh;
+  overflow: scroll;
 }
 .page__header {
   color: $white-color;
@@ -559,14 +652,24 @@ h1, h2, h3, p, a {
   display: none;
   opacity: 0;
   position: absolute;
-  right: 2em;
-  top: 1em;
   color: $white-color;
   z-index: 5;
   font-size: 2em;
   line-height: 1;
   cursor: pointer;
   transition: color .2s ease;
+}
+@media #{$small-up} {
+  .page__close {
+    top: .5em;
+    right: 1em;
+  }
+}
+@media #{$medium-up} {
+  .page__close {
+    top: 1em;
+    right: 2em;
+  }
 }
 .page__close:hover {
   color: $highlight-color;
