@@ -1,153 +1,43 @@
-// FUNCTIONS
+// Base font size (used in function that determines media queries);
 $em-base: 18px;
 
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
-}
-
-@function convert-to-em($value, $base-value: $em-base)  {
-  $value: strip-unit($value) / strip-unit($base-value) * 1em;
-  @if ($value == 0em) { $value: 0; } /* Turn 0em into 0 */
-  @return $value;
-}
-
-@function em-calc($values, $base-value: $em-base) {
-  $max: length($values);
-
-  @if $max == 1 { @return convert-to-em(nth($values, 1), $base-value); }
-
-  $emValues: ();
-  @for $i from 1 through $max {
-    $emValues: append($emValues, convert-to-em(nth($values, $i), $base-value));
-  }
-  @return $emValues;
-}
-
+// FUNCTIONS
+@import 'functions';
 
 // VARIABLES
 // Colors
-$primary-color: hsl(200,18,46);
-$secondary-color: hsl(200,18,26);
-$tertiary-color: hsl(200,18,66);
-$black-color: hsl(0,0,25);
-$white-color: hsl(0,0,98);
-$highlight-color: hsl(4,90,58);
-$highlight-secondary-color: hsl(4,90,38);
+@import 'colors';
 
 // Weights
-$thin-weight: 100;
-$normal-weight: 400;
-$bold-weight: 700;
-$ultra-weight: 900;
+@import 'weights';
 
 // Media Queries
-$small-breakpoint:  em-calc(640) ;
-$medium-breakpoint: em-calc(1024);
-$large-breakpoint:  em-calc(1440);
-$xlarge-breakpoint: em-calc(1920);
+@import 'media-queries';
 
-$small-range:   (0, $small-breakpoint);
-$medium-range:  ($small-breakpoint  + em-calc(1));
-$large-range:   ($medium-breakpoint + em-calc(1));
-$xlarge-range:  ($large-breakpoint  + em-calc(1));
+// MIXINS
+@import "mixins";
 
-// Media Queries
-$screen: "only screen";
-
-$landscape: "#{$screen} and (orientation: landscape)";
-$portrait: "#{$screen} and (orientation: portrait)";
-
-$small-up: $screen;
-
-$medium-up: "#{$screen} and (min-width: #{$medium-range})";
-
-$large-up: "#{$screen} and (min-width: #{$large-range})";
-
-$xlarge-up: "#{$screen} and (min-width: #{$xlarge-range})";
+// KEYFRAME ANIMATIONS
+@import "keyframes";
 
 
-@mixin animation($str) {
-  -webkit-animation: #{$str};
-  -moz-animation: #{$str};
-  -ms-animation: #{$str};
-  -o-animation: #{$str};
-  animation: #{$str};
-}
-@mixin animation-delay($str) {
-  -webkit-animation-delay: #{$str};
-  -moz-animation-delay: #{$str};
-  -ms-animation-delay: #{$str};
-  -o-animation-delay: #{$str};
-  animation-delay: #{$str};
-}
-@mixin animation-fill-mode($str) {
-  -webkit-animation-fill-mode: #{$str};
-  -moz-animation-fill-mode: #{$str};
-  -ms-animation-fill-mode: #{$str};
-  -o-animation-fill-mode: #{$str};
-  animation-fill-mode: #{$str};
-}
-@mixin filter($str) {
-  -webkit-filter: #{$str};
-  -moz-filter: #{$str};
-  -ms-filter: #{$str};
-  -o-filter: #{$str};
-  filter: #{$str};
-}
-@mixin transform-origin($str) {
-  -webkit-transform-origin: #{$str};
-  -moz-transform-origin: #{$str};
-  -ms-transform-origin: #{$str};
-  -o-transform-origin: #{$str};
-  transform-origin: #{$str};
-}
-@mixin transform($transforms) {
-  -webkit-transform: $transforms;
-  -moz-transform: $transforms;
-  -ms-transform: $transforms;
-  -o-transform: $transforms;
-  transform: $transforms;
-}
-@mixin rotate ($deg) {
-  @include transform(rotate(#{$deg}deg));
-}
-@mixin keyframes($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-ms-keyframes #{$name} {
-    @content;
-  }
-  @keyframes #{$name} {
-    @content;
-  }
-}
-@mixin transition($str) {
-  -webkit-transition: #{$str};
-  -moz-transition: #{$str};
-  -ms-transition: #{$str};
-  -o-transition: #{$str};
-  transition: #{$str};
-}
+// ORDER OF RULES:
+  // Positioning
+  // Display & Box Model
+  // Text
+  // Other
+
 
 html {
   overflow: hidden;
 }
-@media only screen {
+@media #{$small-up} {
   html{
     font-size: $em-base - 2px;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media #{$medium-up} {
   html{
-    font-size: $em-base;
-  }
-}
-@media only screen and (min-width: 64.0625em) {
-  html {
     font-size: $em-base;
   }
 }
@@ -156,8 +46,9 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  color: $black-color;
   background-color: $white-color;
+
+  color: $black-color;
   font-family: 'Lato', sans-serif;
 }
 
@@ -199,9 +90,10 @@ h1, h2, h3, p, a {
 }
 
 .name {
-  font-weight: $ultra-weight;
   margin-top: 1em;
   margin-bottom: 0;
+
+  font-weight: $ultra-weight;
 }
 @media #{$small-up} {
   .name {
@@ -216,14 +108,17 @@ h1, h2, h3, p, a {
 
 .text-rotate {
   position: relative;
+
   color: $highlight-color;
 }
 .text-rotate__item {
   @include animation(text-rotate 16s ease infinite);
   position: absolute;
-  width: 100%;
-  left: 0;
   top: 0;
+  left: 0;
+
+  width: 100%;
+
   font-weight: $thin-weight;
   font-size: 1.5em;
 }
@@ -258,26 +153,30 @@ h1, h2, h3, p, a {
   }
 }
 .thumbnail-container {
+  position: relative;
+  top: 0;
+  left: 0;
+
   display: block;
   margin: 0 auto;
-  left: 0;
-  top: 0;
-  position: relative;
 }
 .thumbnail-container.is-active {
+  top: -100vh;
+  left: -100vw;
+
   width: 200vw;
   height: 200vh;
-  left: -100vw;
-  top: -100vh;
 }
 .thumbnail {
-  text-align: center;
-  font-weight: $bold-weight;
-  cursor: pointer;
-  transition: all .2s ease;
-  color: $primary-color;
   position: relative;
   margin-bottom: 1em;
+
+  text-align: center;
+  font-weight: $bold-weight;
+  color: $primary-color;
+
+  cursor: pointer;
+  transition: all .2s ease;
 }
 @media #{$small-up} {
   .thumbnail {
@@ -307,30 +206,34 @@ h1, h2, h3, p, a {
   }
 }
 .thumbnail__transition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+
   display: block;
   width: 1em;
   height: 1em;
   border-radius: 100%;
   background-color: transparent;
   margin: 0 auto;
-  left: 50%;
-  top: 50%;
-  position: absolute;
   padding: 3em;
-  z-index: -1;
+
   @include transition('all .2s linear, background-color 0s');
 }
 .thumbnail__transition.is-active {
+  top: -100vh;
+  left: -100vw;
+
   width: 200vw;
   height: 200vh;
-  left: -100vw;
-  top: -100vh;
   background-color: $secondary-color;
 }
 // Thumbnail hover affects don't occur on mobile
 @media #{$medium-up} {
   .thumbnail-1:hover {
     font-family: 'Merriweather';
+
     @include animation('float 3s ease infinite, rock 5s ease infinite');
   }
   .thumbnail-1:hover .thumbnail__alt-header {
@@ -344,6 +247,7 @@ h1, h2, h3, p, a {
   .thumbnail-3:hover::after {
     content: '|';
     font-weight: $bold-weight;
+
     @include animation(blink 1.2s ease infinite);
   }
 }
@@ -352,6 +256,7 @@ h1, h2, h3, p, a {
 }
 .thumbnail.is-hidden {
   opacity: 0;
+
   @include transition(none);
 }
 .thumbnail.wobble {
@@ -359,32 +264,36 @@ h1, h2, h3, p, a {
   @include animation-delay(.2s);
 }
 .sample__hover {
-  position: absolute;
   top: 0;
+  position: absolute;
+  z-index: 2;
+
   width: 120%;
   height: 100%;
   opacity: 0;
-  z-index: 2;
   visibility: hidden;
   background-size: cover;
+
   @include transition(all .2s ease-in);
   @include animation(background-scroll 25s infinite linear);
 }
 .thumbnail-container:hover + .sample__hover {
   opacity: .5;
   visibility: visible;
+
   @include transition(all .5s ease-in);
 }
 .sample__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+
   display: none;
   max-width: 100vw;
   width: 100vw;
   height: 100vh;
   background-color: $secondary-color;
-  left: 0;
-  top: 0;
-  z-index: 4;
-  position: absolute;
 }
 .sample__item.is-active {
   display: block;
@@ -417,16 +326,18 @@ h1, h2, h3, p, a {
   }
 }
 .sample__images {
-  left: 0;
   top: 0;
+  left: 0;
+
   padding: 0;
   overflow: scroll;
 }
 .sample__image,
 .sample__content {
+  z-index: 1;
+
   display: none;
   opacity: 0;
-  z-index: 1;
 }
 @media #{$small-up} {
   .sample__images,
@@ -446,23 +357,25 @@ h1, h2, h3, p, a {
   }
 }
 .sample__image {
-  display: none;
   position: relative;
-  opacity: 0;
   top: 0;
   left: 0;
+
+  display: none;
+  opacity: 0;
   height: 30vh;
   background-size: 120% auto;
   background-position: center center;
   background-color: $primary-color;
   background-blend-mode: luminosity;
+
   @include transition(all .2s);
 }
 @media #{$small-up} {
   .sample__image {
+    height: 30vh;
     background-size: auto 120%;
     background-repeat: no-repeat;
-    height: 30vh;
   }
   .sample__image:only-child {
     height: 45vh;
@@ -470,8 +383,8 @@ h1, h2, h3, p, a {
 }
 @media #{$medium-up} {
   .sample__image {
-    background-repeat: repeat;
     height: 30vh;
+    background-repeat: repeat;
   }
   .sample__image:only-child {
     height: 90vh;
@@ -483,14 +396,15 @@ h1, h2, h3, p, a {
   }
 }
 .sample__image:hover {
-  background-color: transparent;
   height: 33vh;
+  background-color: transparent;
 }
 .sample__image + .sample__image:hover {
   margin-top: -1.5vh;
 }
 .sample__image.is-active {
   display: block;
+
   @include animation(fade-in .3s ease-in forwards);
   @include animation-delay(.3s);
   @include animation-fill-mode(forwards);
@@ -526,8 +440,9 @@ h1, h2, h3, p, a {
   background-position: center right;
 }
 .sample__content {
-  right: 0;
   top: 0;
+  right: 0;
+
   display: none;
   opacity: 0;
   padding: 3em;
@@ -544,19 +459,21 @@ h1, h2, h3, p, a {
 }
 @media #{$medium-up} {
   .sample__image {
-    background-repeat: repeat;
     height: 30vh;
+    background-repeat: repeat;
   }
 }
 .sample__content.is-active {
   display: block;
+
   @include animation(fade-in .3s ease-in);
   @include animation-delay(.5s);
   @include animation-fill-mode(forwards);
 }
 .sample__content a {
-  color: $white-color;
   border-bottom: 1px solid $white-color;
+
+  color: $white-color;
 }
 .sample__content a:hover {
   color: $tertiary-color;
@@ -575,20 +492,24 @@ h1, h2, h3, p, a {
   font-weight: $bold-weight;
 }
 .sample__section-head {
+  margin-top: 2.5em;
+
   color: $white-color;
   font-weight: $thin-weight;
   font-size: 1.2em;
   text-align: center;
-  margin-top: 2.5em;
 }
 .samples__close {
+  position: absolute;
+  z-index: 5;
+
   display: none;
   opacity: 0;
-  position: absolute;
+
   color: $white-color;
-  z-index: 5;
   font-size: 2em;
   line-height: 1;
+
   cursor: pointer;
 }
 @media #{$small-up} {
@@ -608,29 +529,31 @@ h1, h2, h3, p, a {
 }
 .samples__close.is-active {
   display: block;
+
   @include animation(fade-in .3s ease-in forwards);
   @include animation-delay(.7s);
   @include animation-fill-mode(forwards);
 }
 
 .page {
-  background-color: $secondary-color;
-  display: none;
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+  z-index: 2;
+
+  display: none;
   width: 100vw;
   height: 90vh;
-  z-index: 2;
+  background-color: $secondary-color;
 }
 .page.is-active {
   display: block;
 }
 .page__content {
   display: none;
+  height: 100vh;
   opacity: 0;
   padding-top: 3em;
-  height: 100vh;
   overflow: scroll;
 }
 .page__header {
@@ -638,26 +561,31 @@ h1, h2, h3, p, a {
   text-align: center;
 }
 .page__text {
+  margin-top: 1.5em;
+
   color: $white-color;
   font-size: 1.2em;
-  margin-top: 1.5em;
 }
 .page__content.is-active {
   display: block;
+
   @include animation(fade-in .3s ease-in forwards);
   @include animation-delay(.1s);
   @include animation-fill-mode(forwards);
 }
 .page__close {
+  position: absolute;
+  z-index: 5;
+
   display: none;
   opacity: 0;
-  position: absolute;
+
   color: $white-color;
-  z-index: 5;
   font-size: 2em;
   line-height: 1;
+
   cursor: pointer;
-  transition: color .2s ease;
+  @include transition(color .2s ease);
 }
 @media #{$small-up} {
   .page__close {
@@ -676,6 +604,7 @@ h1, h2, h3, p, a {
 }
 .page__close.is-active {
   display: block;
+
   @include animation(fade-in .3s ease-in forwards);
   @include animation-delay(.3s);
   @include animation-fill-mode(forwards);
@@ -683,23 +612,25 @@ h1, h2, h3, p, a {
 
 
 .modal__background {
-  display: none;
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  display: none;
   width: 100vw;
   height: 100vh;
-  left: 0;
-  top: 0;
   background-color: $secondary-color;
-  z-index: 1;
 }
 
 
 .menu {
   position: absolute;
-  bottom: 0;
-  width: 100vw;
-  display: block;
   z-index: 4;
+  bottom: 0;
+
+  display: block;
+  width: 100vw;
   background-color: $primary-color;
 }
 @media #{$small-up} {
@@ -716,14 +647,17 @@ h1, h2, h3, p, a {
   max-width: 100vw;
 }
 .menu__item a {
-  color: $white-color;
-  background-color: $primary-color;
-  height: 100%;
-  display: block;
-  transition: all .2s cubic-bezier(.4,0,.2,1);
   position: relative;
-  line-height: 10vh;
   z-index: 1;
+
+  display: block;
+  height: 100%;
+  background-color: $primary-color;
+
+  color: $white-color;
+  line-height: 10vh;
+
+  transition: all .2s cubic-bezier(.4,0,.2,1);
 }
 @media #{$small-up} {
   .menu__item a {
@@ -740,12 +674,15 @@ h1, h2, h3, p, a {
   background-color: $highlight-color;
 }
 .menu__item a:active {
-  background-color: $highlight-color;
   z-index: 2;
+
+  background-color: $highlight-color;
+
   @include transform( scaleX(1.1) );
 }
 .menu__item.is-active a {
   background-color: $highlight-color;
+
   color: $white-color;
 }
 .menu__item.snap a {
@@ -753,148 +690,27 @@ h1, h2, h3, p, a {
   @include animation-delay(.2s);
 }
 .menu__transition {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 0;
+
   display: block;
   width: 1em;
   height: 1em;
   border-radius: 100%;
   background-color: $secondary-color;
   margin: 0 auto;
-  left: 50%;
-  bottom: 0;
-  position: absolute;
   padding: 3em;
-  z-index: 0;
   opacity: 0;
+
   @include transition('all .2s linear, opacity 0s');
 }
 .menu__transition.is-active {
-  opacity: 1;
+  bottom: -150vh;
+  left: -150vw;
+
   width: 300vw;
   height: 300vh;
-  left: -150vw;
-  bottom: -150vh;
-}
-
-@include keyframes(text-rotate) {
-  0% {
-    @include transform(rotateX(-90deg));
-  }
-  5% {
-    @include transform(rotateX(0deg));
-  }
-  24% {
-    @include transform(rotateX(0deg));
-  }
-  25% {
-    @include transform(rotateX(90deg));
-  }
-  100% {
-    @include transform(rotateX(90deg));
-  }
-}
-@include keyframes(fade-in) {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@include keyframes(background-scroll) {
-  0% {
-    left: -10%;
-    @include filter(grayscale(1));
-  }
-  25% {
-    @include filter(grayscale(0));
-  }
-  50% {
-    left: 0;
-    @include filter(grayscale(1));
-  }
-  75% {
-    @include filter(grayscale(0));
-  }
-  100% {
-    left: -10%;
-    @include filter(grayscale(1));
-  }
-}
-@include keyframes(blink) {
-  0% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  71% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@include keyframes(click) {
-  0% {
-    @include transform( scale(1,1) );
-  }
-  33% {
-    @include transform( scale(1.05,1.05) );
-  }
-  66% {
-    @include transform( scale(.9,.9) );
-  }
-  100%{
-    @include transform( scale(1,1) );
-  }
-}
-@include keyframes(float) {
-  0% {
-    top: -.1em;
-  }
-  50% {
-    top: .1em;
-  }
-  100% {
-    top: -.1em;
-  }
-}
-@include keyframes(rock) {
-  0% {
-    @include transform( rotate( 3deg ) );
-  }
-  50% {
-    @include transform( rotate( -3deg ) );
-  }
-  100% {
-    @include transform( rotate( 3deg ) );
-  }
-}
-@include keyframes(snap) {
-  0% {
-    @include transform( scaleX(1) );
-  }
-  33% {
-    @include transform( scaleX(.9) );
-  }
-  66% {
-    @include transform( scaleX(1.01) );
-  }
-  100% {
-    @include transform( scaleX(1) );
-  }
-}
-@include keyframes(wobble) {
-  0% {
-    @include transform( scale(1,1) );
-  }
-  33% {
-    @include transform( scale(.9,.9) );
-  }
-  66% {
-    @include transform( scale(1.05,1.05) );
-  }
-  100%{
-    @include transform( scale(1,1) );
-  }
+  opacity: 1;
 }

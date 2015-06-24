@@ -1,0 +1,138 @@
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@include keyframes(text-rotate) {
+  0% {
+    @include transform(rotateX(-90deg));
+  }
+  5% {
+    @include transform(rotateX(0deg));
+  }
+  24% {
+    @include transform(rotateX(0deg));
+  }
+  25% {
+    @include transform(rotateX(90deg));
+  }
+  100% {
+    @include transform(rotateX(90deg));
+  }
+}
+@include keyframes(fade-in) {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@include keyframes(background-scroll) {
+  0% {
+    left: -10%;
+    @include filter(grayscale(1));
+  }
+  25% {
+    @include filter(grayscale(0));
+  }
+  50% {
+    left: 0;
+    @include filter(grayscale(1));
+  }
+  75% {
+    @include filter(grayscale(0));
+  }
+  100% {
+    left: -10%;
+    @include filter(grayscale(1));
+  }
+}
+@include keyframes(blink) {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  71% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@include keyframes(click) {
+  0% {
+    @include transform( scale(1,1) );
+  }
+  33% {
+    @include transform( scale(1.05,1.05) );
+  }
+  66% {
+    @include transform( scale(.9,.9) );
+  }
+  100%{
+    @include transform( scale(1,1) );
+  }
+}
+@include keyframes(float) {
+  0% {
+    top: -.1em;
+  }
+  50% {
+    top: .1em;
+  }
+  100% {
+    top: -.1em;
+  }
+}
+@include keyframes(rock) {
+  0% {
+    @include transform( rotate( 3deg ) );
+  }
+  50% {
+    @include transform( rotate( -3deg ) );
+  }
+  100% {
+    @include transform( rotate( 3deg ) );
+  }
+}
+@include keyframes(snap) {
+  0% {
+    @include transform( scaleX(1) );
+  }
+  33% {
+    @include transform( scaleX(.9) );
+  }
+  66% {
+    @include transform( scaleX(1.01) );
+  }
+  100% {
+    @include transform( scaleX(1) );
+  }
+}
+@include keyframes(wobble) {
+  0% {
+    @include transform( scale(1,1) );
+  }
+  33% {
+    @include transform( scale(.9,.9) );
+  }
+  66% {
+    @include transform( scale(1.05,1.05) );
+  }
+  100%{
+    @include transform( scale(1,1) );
+  }
+}

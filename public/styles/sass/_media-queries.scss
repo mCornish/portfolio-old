@@ -1,0 +1,23 @@
+$small-breakpoint:  em-calc(640) ;
+$medium-breakpoint: em-calc(1024);
+$large-breakpoint:  em-calc(1440);
+$xlarge-breakpoint: em-calc(1920);
+
+$small-range:   (0, $small-breakpoint);
+$medium-range:  ($small-breakpoint  + em-calc(1));
+$large-range:   ($medium-breakpoint + em-calc(1));
+$xlarge-range:  ($large-breakpoint  + em-calc(1));
+
+
+$screen: "only screen";
+
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+
+$small-up: $screen;
+
+$medium-up: "#{$screen} and (min-width: #{$medium-range})";
+
+$large-up: "#{$screen} and (min-width: #{$large-range})";
+
+$xlarge-up: "#{$screen} and (min-width: #{$xlarge-range})";
